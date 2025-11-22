@@ -1,5 +1,5 @@
 import express from 'express';
-import askAI from './utils/askAI.ts';
+import askAI from '../utils/askAI.ts';
 
 const app=express();
 const PORT=3000;
