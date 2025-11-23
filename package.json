@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node --loader ts-node/esm server.ts"
+    "dev": "node --loader ts-node/esm src/server.ts"
   },
   "repository": {
     "type": "git",
@@ -22,10 +22,13 @@
     "ai": "^5.0.99",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
+    "mongodb": "^7.0.0",
+    "redis": "^5.10.0",
     "zod": "^4.1.12"
   },
   "devDependencies": {
     "@types/express": "^5.0.5",
+    "@types/mongodb": "^4.0.6",
     "@types/node": "^24.10.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
