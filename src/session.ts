@@ -48,7 +48,7 @@ export async function getOrCreateSession(sessionId?: string): Promise<Session>{
   };
 
   try{    
-    client.setEx(
+    await client.setEx(
       getSessionKey(newSessionId),
       SESSION_TTL,
       JSON.stringify(newSession)

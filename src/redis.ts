@@ -34,5 +34,3 @@ export async function closeRedisClient(){
   };
 
 };
-
-getRedisClient();
