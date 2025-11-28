@@ -1,5 +1,5 @@
 import { randomUUID } from "crypto";
-import {getRedisClient} from "./redis.ts";
+import {getRedisClient} from "../utils/redis.ts";
 
 const SESSION_KEY_PREFIX= "session:";
 const SESSION_TTL= 600; //10 minutes in seconds

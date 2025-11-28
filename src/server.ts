@@ -1,6 +1,6 @@
 import express from 'express';
-import ask from '../utils/ask.ts';
-import { getOrCreateSession } from './session.ts';
+import ask from '../components/ask.ts';
+import { getOrCreateSession } from '../components/session.ts';
 
 const app=express();
 const PORT=3000;

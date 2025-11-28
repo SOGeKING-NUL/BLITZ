@@ -1,8 +1,8 @@
 import { createOpenRouter } from "@openrouter/ai-sdk-provider";
 import { ModelMessage, streamText } from "ai";
 import "dotenv/config"
-import { getRedisClient} from "../src/redis.ts";
-import { getSessionMessages, addMessagetoSession, SessionMessages } from "../src/session.ts";
+import { getRedisClient} from "../utils/redis.ts";
+import { getSessionMessages, addMessagetoSession, SessionMessages } from "./session.ts";
 import { Session } from "inspector";
 
 const openRouter= createOpenRouter({
