@@ -1,5 +1,6 @@
 import express from 'express';
-import askAI from '../utils/askAI.ts';
+import ask from '../utils/ask.ts';
+import { getOrCreateSession } from './session.ts';
 
 const app=express();
 const PORT=3000;
@@ -14,13 +15,19 @@ app.get('/', (req, res) =>{
 });
 
 app.post('/chat', async (req, res)=>{
-    const {message} =req.body;
+    const {message, session_id} =req.body as {message: string, session_id: string};
 
-    if(!message) return res.json({error: "no message sent"}); 
+    if(!message) return res.status(400).json({error: "no message sent"}); 
 
     try{
-        const aiResponse = await askAI(message);
-        return res.json({response: aiResponse});
+        const session= await getOrCreateSession(session_id);
+
+        const aiResponse = await ask(message, session.session_id);
+        return res.json({
+            response: aiResponse,
+            session_id: session.session_id
+        });
+
     }catch (error){
         console.error("Error processing message:", error);
         res.status(500).json({error: "Internal server error"});
