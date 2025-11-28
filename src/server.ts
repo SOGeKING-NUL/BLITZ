@@ -21,11 +21,13 @@ app.post('/chat', async (req, res)=>{
 
     try{
         const session= await getOrCreateSession(session_id);
+        const result = await ask(message, session.session_id);
 
-        const aiResponse = await ask(message, session.session_id);
         return res.json({
-            response: aiResponse,
-            session_id: session.session_id
+            response: result.response,
+            session_id: session.session_id,
+            tool_used: result.tool_used,
+            tool_details: result.tool_details
         });
 
     }catch (error){
